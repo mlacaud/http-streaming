@@ -34,8 +34,9 @@ const xhrFactory = function() {
         options = newOptions;
       }
     }
+    const xhrFunction = videojs.Hls.xhr.customXHR || videojsXHR;
 
-    const request = videojsXHR(options, function(error, response) {
+    const request = xhrFunction(options, function(error, response) {
       const reqResponse = request.response;
 
       if (!error && reqResponse) {
